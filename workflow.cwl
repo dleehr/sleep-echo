@@ -18,7 +18,7 @@ steps:
     requirements:
     - class: ResourceRequirement
       coresMin: 1
-      ramMin: 100
+      ramMin: 1000
     scatter: message
     in:
       loops: loops
