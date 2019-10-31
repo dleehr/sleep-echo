@@ -1,21 +1,21 @@
 cwlVersion: v1.0
 class: CommandLineTool
-requirements:
+hints:
   - class: DockerRequirement
     dockerPull: 'python:3.6'
+requirements:
   - class: InlineJavascriptRequirement
   - class: InitialWorkDirRequirement
     listing:
       - entryname: sleep-echo.py
         entry: |
+          from __future__ import print_function
           import time
           import sys
           loops, delay, message = int(sys.argv[1]), float(sys.argv[2]), sys.argv[3]
           for i in range(loops):
             line = '{}: {}'.format(i, message)
             print(line)
-            print(line, file=sys.stderr)
-            sys.stderr.flush()
             time.sleep(delay)
           print('Finished', message)
 baseCommand: python
